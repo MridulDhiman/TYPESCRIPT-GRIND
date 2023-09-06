@@ -1,3 +1,4 @@
+"use strict";
 //Implement a function that reverses a string.
 function rev_str(x) {
     return x.split("").reverse().join("");
