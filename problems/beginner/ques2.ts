@@ -2,6 +2,12 @@
 // Write a function to check if a number is even or odd.
 
 // Method 1: using function type signature and arrow functions 
+
+/*
+NOTES: 
+print() => aise krne par ho rha tha bakchodi(overloading in function)
+evenOrOdd, evenOrOdd2,... and so on pe duplicate function declaratioan tha error
+*/
 type fxnSignature = (x: number) => boolean;
 
 let evenOrOdd: fxnSignature = (x) => {
@@ -55,6 +61,8 @@ let num : fxnSign3 = {
     }
 }
 
+
+
 function print_something(x: boolean)  {
     if(x) {
     console.log("Even no.");
@@ -71,5 +79,3 @@ print_something(evenOrOdd3(789));
 print_something(evenOrOdd4(234));
 print_something(num.evenOrOdd5(345));
 
-// console.log(evenOrOdd(3));
-// console.log(evenOrOdd2(24));
