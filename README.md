@@ -3,7 +3,7 @@
 ### Typescript theory and problem solving
 
 ---
-##### **TARGET: ** Problems of beginner (40)  and intermediate level(10)
+##### **TARGET:** Problems of beginner (40)  and intermediate level(10)
 ---
 
 ### PROGRESS: 
