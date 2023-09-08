@@ -14,12 +14,60 @@ Ques 1: How to take input in TS?
 */
 import * as readline from "readline/promises";
 import { stdin as input, stdout as output } from "process";
-// interface listItem {
-// data: string;
-// id: number;
-// }
 const rl = readline.createInterface({
     input, output
 });
-const ans = await rl.question("Input a number");
-console.log(ans);
+// array of objects
+let todoList = [
+    { data: "Learn Typescript", id: 0 },
+    { data: "Making Todo List in TS", id: 1 },
+];
+const viewList = (list) => {
+    list.forEach((item) => {
+        console.log(item.data, item.id);
+    });
+};
+const addToList = (list, str) => {
+    const obj = {
+        data: str,
+        id: list.length,
+    };
+    list.push(obj);
+};
+const removeFromList = (list, id) => {
+    if (list.length < 0) {
+        console.log("No element found in the list");
+        return;
+    }
+    const ind = list.findIndex((el) => el.id === id);
+    if (ind != -1) {
+        todoList = list.filter((el) => el.id !== id);
+    }
+    else {
+        console.log(`ID ${id} not found. Enter valid id.....`);
+    }
+};
+while (true) {
+    const ans = await rl.question(`Input a number: 
+                              1. to view list
+                              2. add data to list
+                              3. remove data from list
+                              4. Exit
+                              Choose an option: `);
+    console.log(ans);
+    if (Number(ans) === 1) {
+        viewList(todoList);
+    }
+    if (Number(ans) === 2) {
+        const enteredData = await rl.question("Enter data: ");
+        addToList(todoList, enteredData);
+    }
+    if (Number(ans) === 3) {
+        const id = await rl.question("Enter id: ");
+        removeFromList(todoList, Number(id));
+    }
+    if (Number(ans) === 4) {
+        break;
+    }
+}
+rl.close();
